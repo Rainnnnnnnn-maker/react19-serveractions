@@ -10,24 +10,24 @@ const fetchPosts = async () => {
 };
 
 const Use = () => {
-  const [users, setUsers] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  // const [users, setUsers] = useState([]);
+  // const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    setIsLoading(true);
-    fetchPosts().then((data) => {
-      setUsers(data);
-      setIsLoading(false); // Move this inside the `.then()` callback
-    });
-  }, []);
+  // useEffect(() => {
+  //   setIsLoading(true);
+  //   fetchPosts().then((data) => {
+  //     setUsers(data);
+  //     setIsLoading(false); // Move this inside the `.then()` callback
+  //   });
+  // }, []);
 
-  // const users = use(fetchPosts());
+  const users = use(fetchPosts());
 
   return (
     <ul>
-      {isLoading ? (
+      {/* {isLoading ? (
         <h2>Loading...</h2>
-      ) : (
+      ) : ( */}
         <>
           {users.map((user: any) => (
             <div
@@ -39,7 +39,7 @@ const Use = () => {
             </div>
           ))}
         </>
-      )}
+      {/* )} */}
     </ul>
   );
 };

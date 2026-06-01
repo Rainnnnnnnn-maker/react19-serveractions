@@ -13,7 +13,7 @@ export default function Home() {
       {/* <ServerAction /> */}
       {/* <ServerAction2 /> */}
       {/* <ActionState /> */}
-      {/* <Optimistic /> */}
+      <Optimistic />
       <Suspense fallback={"Loading..."}>
         <Use />
       </Suspense>
