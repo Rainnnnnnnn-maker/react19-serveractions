@@ -1,45 +1,29 @@
 "use client";
 
-import React, { use, useEffect, useState } from "react";
+import React from "react";
 
-const fetchPosts = async () => {
-  await new Promise((resolve) => setTimeout(resolve, 1500));
-
-  const res = await fetch("https://jsonplaceholder.typicode.com/users");
-  return res.json();
+type User = {
+  id: number;
+  name: string;
+  email: string;
 };
 
-const Use = () => {
-  // const [users, setUsers] = useState([]);
-  // const [isLoading, setIsLoading] = useState(false);
+type Props = {
+  users: User[]; // Promiseではなく解決済みのデータを受け取る
+};
 
-  // useEffect(() => {
-  //   setIsLoading(true);
-  //   fetchPosts().then((data) => {
-  //     setUsers(data);
-  //     setIsLoading(false); // Move this inside the `.then()` callback
-  //   });
-  // }, []);
-
-  const users = use(fetchPosts());
-
+const Use = ({ users }: Props) => {
   return (
     <ul>
-      {/* {isLoading ? (
-        <h2>Loading...</h2>
-      ) : ( */}
-        <>
-          {users.map((user: any) => (
-            <div
-              key={user.id}
-              className="bg-blue-50 shadow-md p-4 my-6 rounded-lg"
-            >
-              <h2 className="text-xl font-bold">{user.name}</h2>
-              <p>{user.email}</p>
-            </div>
-          ))}
-        </>
-      {/* )} */}
+      {users.map((user) => (
+        <div
+          key={user.id}
+          className="bg-blue-50 shadow-md p-4 my-6 rounded-lg"
+        >
+          <h2 className="text-xl font-bold">{user.name}</h2>
+          <p>{user.email}</p>
+        </div>
+      ))}
     </ul>
   );
 };
